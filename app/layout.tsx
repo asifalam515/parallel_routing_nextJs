@@ -13,29 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Parallel Routing",
+  title: "Advance  Routing",
   description: "new way of routing",
 };
 
-export default function RootLayout({
-  children,
-  comments,
-  members,
-}: Readonly<{
-  children: React.ReactNode;
-  comments: React.ReactNode;
-  members: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<React.ReactNode>) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <h1>{children}</h1>
-        <div className="flex">
-          {comments}
-          {members}
-        </div>
+        <div className="flex"></div>
       </body>
     </html>
   );
