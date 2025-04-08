@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,15 +17,22 @@ export const metadata: Metadata = {
   title: "Advance  Routing",
   description: "new way of routing",
 };
-
-export default function RootLayout({ children }: Readonly<React.ReactNode>) {
+type CP = {
+  children: ReactNode;
+  members: ReactNode;
+  comments: ReactNode;
+};
+export default function RootLayout({ children, members, comments }: CP) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <h1>{children}</h1>
-        <div className="flex"></div>
+        <div className="flex">
+          {comments}
+          {members}
+        </div>
       </body>
     </html>
   );
